@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Django
+*.sqlite3
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# Environment / secrets
+.env
+# Keep .env.example — it documents required variables without exposing values
+
+# Cache & throttle state (runtime artefacts, not source)
+cache/
+*.cache
+
+# Logs
+logs/
+
+# Test artefacts
+.coverage
+htmlcov/
+.pytest_cache/
+coverage.xml
+*.coveragerc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# pyc in migrations (keep .py migrations, drop compiled)
+apps/*/migrations/__pycache__/
