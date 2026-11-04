@@ -4,15 +4,14 @@ Integration tests for the Django view layer.
 OSRM and station index are mocked — no network calls, no DB queries.
 """
 
-import json
-import pytest
 from decimal import Decimal
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, patch
 
+import pytest
 from django.core.cache import cache
 from django.test import AsyncClient
 
-from apps.routing.exceptions import GeocodingError, NoRouteError, RoutingServiceError
+from apps.routing.exceptions import GeocodingError, RoutingServiceError
 
 pytestmark = pytest.mark.django_db
 

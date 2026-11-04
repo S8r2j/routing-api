@@ -10,7 +10,7 @@ No Django ORM calls here; all inputs are plain Python dicts/lists.
 
 import logging
 import math
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 
 import numpy as np
 from scipy.spatial import KDTree

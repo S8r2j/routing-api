@@ -18,7 +18,9 @@ def get_all_stations() -> list[dict]:
     Called once at startup by FuelStationIndex.load() to populate the KD-tree.
     Returns an empty list if the table is empty.
     """
-    from apps.routing.models import FuelStation  # local import — avoids circular deps at module load
+    from apps.routing.models import (
+        FuelStation,  # local import — avoids circular deps at module load
+    )
 
     stations = []
     for s in FuelStation.objects.all():

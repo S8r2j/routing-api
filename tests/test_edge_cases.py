@@ -4,13 +4,12 @@ Adversarial input tests — designed to find crashes, 500 errors, and unexpected
 All adversarial HTTP inputs must return 400 or 422, never 500.
 """
 
-import math
-import time
 import asyncio
-import pytest
+import time
 from decimal import Decimal
 from unittest.mock import AsyncMock, patch
 
+import pytest
 from django.test import AsyncClient
 
 from apps.routing.exceptions import NoRouteError
@@ -270,8 +269,9 @@ class TestConcurrency:
         after the first has populated the cache. Due to race conditions in async caching,
         OSRM may be called more than once, but the total call count should be low.
         """
-        from tests.conftest import MOCK_OSRM_RESPONSE
         from decimal import Decimal
+
+        from tests.conftest import MOCK_OSRM_RESPONSE
 
         def _geocode(loc):
             return (40.713, -74.006) if "york" in loc.lower() else (34.052, -118.243)

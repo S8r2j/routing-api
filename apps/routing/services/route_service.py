@@ -16,7 +16,6 @@ without an HTTP client.
 import asyncio
 import logging
 
-from apps.routing.exceptions import GeocodingError, NoRouteError, RoutingServiceError
 from apps.routing.services.geocoder import geocode_location
 from apps.routing.services.osrm import fetch_route
 from apps.routing.services.planner import (

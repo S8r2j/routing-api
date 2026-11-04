@@ -6,8 +6,9 @@ and exclude with: pytest tests/ -m "not slow"
 """
 
 import time
-import pytest
 from decimal import Decimal
+
+import pytest
 
 from apps.routing.services.planner import (
     build_mileage_array,
@@ -72,11 +73,8 @@ def test_planner_2000_stations_3000_mile_route_under_200ms():
 
 def test_mileage_array_10000_points_under_500ms():
     """build_mileage_array over a 10 000-point polyline must finish in < 500ms."""
-    import numpy as np
 
     n = 10000
-    lons = list(map(float, list(range(n))))
-    lats = [40.0] * n
     polyline = list(zip(
         (-74.0 + i * (-44.0 / n) for i in range(n)),
         (40.0 + i * (-6.0 / n) for i in range(n)),
@@ -97,7 +95,6 @@ def test_station_projection_2000_stations_500_point_polyline_under_200ms():
     Projecting 2 000 stations onto a 500-point polyline via KDTree should
     complete in under 200ms.
     """
-    import numpy as np
 
     n_poly = 500
     polyline = [
@@ -158,7 +155,7 @@ def test_full_algorithm_pipeline_nyc_to_la_under_20ms():
 
     start = time.perf_counter()
 
-    mileage = build_mileage_array(polyline)
+    build_mileage_array(polyline)  # timed together with the planner below
     stops = plan_fuel_stops(stations_near_route, total_miles=2789.0)
 
     elapsed_ms = (time.perf_counter() - start) * 1000
