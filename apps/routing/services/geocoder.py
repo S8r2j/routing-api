@@ -9,14 +9,14 @@ Resolution order:
 2. Nominatim — network fallback, only reached when pgeocode returns NaN.
 """
 
-import math
 import logging
+import math
 import re
 import unicodedata
 from functools import lru_cache
 
+from geopy.exc import GeocoderServiceError, GeocoderTimedOut
 from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut, GeocoderServiceError
 
 from apps.routing.exceptions import GeocodingError
 

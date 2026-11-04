@@ -2,8 +2,9 @@
 Shared pytest fixtures for the Fuel Route test suite.
 """
 
+from unittest.mock import AsyncMock, patch
+
 import pytest
-from unittest.mock import AsyncMock, MagicMock, patch
 
 # ---------------------------------------------------------------------------
 # Shared mock data
@@ -98,6 +99,7 @@ def loaded_station_index():
     """
     import numpy as np
     from scipy.spatial import KDTree
+
     from apps.routing.services.station_index import FuelStationIndex
 
     fake_stations = [

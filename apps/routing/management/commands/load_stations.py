@@ -24,8 +24,9 @@ def _geocode_pgeocode(city: str, state: str) -> tuple[float, float] | tuple[None
     Returns (lat, lon) on success, or (None, reason_string) on failure.
     """
     try:
-        import pgeocode  # type: ignore
         import math
+
+        import pgeocode  # type: ignore
 
         nomi = pgeocode.Nominatim("us")
         df = nomi._data  # underlying pandas DataFrame
@@ -58,8 +59,8 @@ def _geocode_nominatim(
     Returns (lat, lon) on success, or (None, reason_string) on failure.
     """
     try:
+        from geopy.exc import GeocoderTimedOut  # type: ignore
         from geopy.geocoders import Nominatim  # type: ignore
-        from geopy.exc import GeocoderTimedOut, GeocoderServiceError  # type: ignore
 
         geolocator = Nominatim(user_agent="fuel_route_geocoder")
         query = f"{city}, {state}, USA"

@@ -19,7 +19,6 @@ Skip in CI (these require a live server):
 """
 
 import asyncio
-import sys
 import time
 
 import httpx
@@ -182,7 +181,7 @@ class TestConcurrentHammering:
             elif r.status_code == 500:
                 errors.append(f"Request {i} returned 500: {r.text[:200]}")
 
-        assert not errors, f"Failures during concurrent load:\n" + "\n".join(errors)
+        assert not errors, "Failures during concurrent load:\n" + "\n".join(errors)
 
     @pytest.mark.asyncio
     async def test_50_simultaneous_requests_server_still_alive(self):
@@ -246,7 +245,6 @@ class TestRapidSequential:
                 )
 
         avg = sum(times) / len(times)
-        max_time = max(times)
         slow = [(i, t) for i, t in enumerate(times) if t > 5.0]
 
         assert avg < 5.0, f"Average response time {avg:.2f}s exceeds 5s limit"

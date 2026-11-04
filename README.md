@@ -1,5 +1,7 @@
 # Fuel Route API
 
+[![CI](https://github.com/S8r2j/routing-api/actions/workflows/ci.yml/badge.svg)](https://github.com/S8r2j/routing-api/actions/workflows/ci.yml)
+
 A Django REST API that accepts a US start and end location and returns a cost-effective fuel stop plan for the route. The API fetches the driving route from OSRM, finds all fuel stations along the corridor using an in-memory spatial index, and runs a two-phase greedy algorithm that minimises total fuel cost by buying cheap fuel in bulk and avoiding expensive stations where possible. The response includes the full route geometry, an ordered list of fuel stops with per-stop cost breakdowns, and a summary of total spend.
 
 ---
@@ -321,7 +323,7 @@ The test suite covers the algorithm layer, the HTTP view layer, adversarial inpu
 **Install test dependencies**
 
 ```bash
-pip install pytest pytest-django pytest-asyncio httpx
+pip install -r requirements-dev.txt
 ```
 
 **Run all tests (recommended)**

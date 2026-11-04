@@ -5,8 +5,9 @@ No Django, no HTTP, no OSRM — pure planner logic only.
 All station dicts are constructed inline; no DB access.
 """
 
-import pytest
 from decimal import Decimal
+
+import pytest
 
 from apps.routing.exceptions import NoRouteError
 from apps.routing.services.planner import (
@@ -19,7 +20,6 @@ from apps.routing.services.planner import (
     plan_fuel_stops,
     project_stations_onto_route,
 )
-
 
 # ---------------------------------------------------------------------------
 # Helpers
